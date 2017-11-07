@@ -1,5 +1,5 @@
 
-# 3/10/2017
+# 11/7/2017
 
 #****************************************************************************************************
 #                Libraries and global functions ####
@@ -29,6 +29,7 @@ temp <- tempfile()
 download.file(fget, temp, mode="wb")
 
 lfiles <- unzip(temp, list=TRUE) # data frame of files in the zip archive
+lfiles
 csvfiles <- str_subset(lfiles$Name, "csv/")
 ddfiles <- str_subset(lfiles$Name, "data_dictionary/")
 
