@@ -23,6 +23,8 @@ library("btools")
 #                Download Flow of Funds data ####
 #****************************************************************************************************
 fget <- "https://www.federalreserve.gov/releases/z1/current/z1_csv_files.zip"
+fget <- "https://www.federalreserve.gov/releases/z1/20180308/z1_csv_files.zip"
+# https://www.federalreserve.gov/releases/z1/20180308/z1_csv_files.zip
 zfn <- "z1_csv_files.zip"
 
 temp <- tempfile()
