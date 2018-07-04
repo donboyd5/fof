@@ -1,5 +1,5 @@
 
-# 12/29/2017
+# 07/04/2018
 
 #****************************************************************************************************
 #                Libraries and global functions ####
@@ -22,9 +22,16 @@ library("btools")
 #****************************************************************************************************
 #                Download Flow of Funds data ####
 #****************************************************************************************************
-fget <- "https://www.federalreserve.gov/releases/z1/current/z1_csv_files.zip"
-fget <- "https://www.federalreserve.gov/releases/z1/20180308/z1_csv_files.zip"
+# fget <- "https://www.federalreserve.gov/releases/z1/current/z1_csv_files.zip"
+# fget <- "https://www.federalreserve.gov/releases/z1/20180308/z1_csv_files.zip"
 # https://www.federalreserve.gov/releases/z1/20180308/z1_csv_files.zip
+
+# Go to:
+#   https://www.federalreserve.gov/releases/z1/
+# and get url of latest release
+
+fget <- "https://www.federalreserve.gov/releases/z1/20180607/z1_csv_files.zip"
+
 zfn <- "z1_csv_files.zip"
 
 temp <- tempfile()
@@ -150,7 +157,8 @@ anyDuplicated(datau %>% select(-value)) # good, there are no cases of different 
 
 # now put the best description for each variable on the data
 intersect(names(datau), names(dd.best))
-fofu <- datau %>% left_join(dd.best %>% select(-priority, -src, -srctype, -table, -lineno, -line_rowcol))
+fofu <- datau %>%
+  left_join(dd.best %>% select(-priority, -src, -srctype, -table, -lineno, -line_rowcol))
 glimpse(fofu)
 
 memory()

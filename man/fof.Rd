@@ -21,7 +21,7 @@
 \source{
 Federal Reserve Board Z1 release (http://www.federalreserve.gov/releases/z1/current/)
 
-Download https://www.federalreserve.gov/releases/z1/Current/z1_csv_files.zip, read and combine files
+Download latest csv zip release from https://www.federalreserve.gov/releases/z1/, read and combine files
 }
 \usage{
 fof
