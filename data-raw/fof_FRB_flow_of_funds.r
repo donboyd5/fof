@@ -30,7 +30,8 @@ library("btools")
 #   https://www.federalreserve.gov/releases/z1/
 # and get url of latest release
 
-fget <- "https://www.federalreserve.gov/releases/z1/20180607/z1_csv_files.zip"
+# fget <- "https://www.federalreserve.gov/releases/z1/20180607/z1_csv_files.zip"
+fget <- "https://www.federalreserve.gov/releases/z1/20180920/z1_csv_files.zip"
 
 zfn <- "z1_csv_files.zip"
 
