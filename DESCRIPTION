@@ -1,12 +1,13 @@
 Package: fof
 Type: Package
 Title: Flow of funds data
-Date: 2016-10-05
-Version: 0.4
+Date: 2019-04-03
+Version: 0.5
 Authors@R: "Don Boyd <donboyd5@gmail.com> [aut, cre]"
 Description: Full flow of funds data (Financial Accounts of the United States).
 Depends:
     R (>= 3.3.0)
 License: GPL-2
 LazyData: TRUE
-RoxygenNote: 6.1.0
+Encoding: UTF-8
+RoxygenNote: 6.1.1

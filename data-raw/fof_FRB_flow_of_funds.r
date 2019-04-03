@@ -1,5 +1,5 @@
 
-# 07/04/2018
+# 04/03/2019
 
 #****************************************************************************************************
 #                Libraries and global functions ####
@@ -8,15 +8,38 @@ library("magrittr")
 library("plyr") # needed for ldply; must be loaded BEFORE dplyr
 library("tidyverse")
 options(tibble.print_max = 60, tibble.print_min = 60) # if more than 60 rows, print 60 - enough for states
-# ggplot2 tibble tidyr readr purrr dplyr
-
+# ggplot2 tibble tidyr readr purrr dplyr stringr forcats
 
 library("hms") # hms, for times.
-library("stringr") # stringr, for strings.
 library("lubridate") # lubridate, for date/times.
-library("forcats") # forcats, for factors.
 library("readxl") # readxl, for .xls and .xlsx files.
 library("btools")
+
+#****************************************************************************************************
+#                FAILED attempt at xml fle ####
+#****************************************************************************************************
+# xget <- "https://www.federalreserve.gov/datadownload/Output.aspx?rel=z1&filetype=zip" # persistent url
+# xzfn <- "FRB_z1.zip"
+#
+# # xtemp <- tempfile()
+# # download.file(xget, xtemp, mode="wb")
+#
+# # library("XML")
+# library("xml2")
+# xfile <- paste0("C:/Users/donbo/Downloads/", xzfn)
+#
+# xfn <- "Z1_data.xml"
+# xfile <- paste0("C:/Users/donbo/Downloads/FRB_z1/", xfn)
+#
+# system.time(x <- read_xml(xfile)) # 15 secs
+# str(x)
+#
+# xml_name(x)
+# xml_children(x) # NO! takes too long
+# xml_text(x) # NO! takes too long
+# xml_find_all(x, ".//baz")
+
+# xl <- as_list(x) # NO! takes too long
 
 
 #****************************************************************************************************
@@ -31,7 +54,8 @@ library("btools")
 # and get url of latest release
 
 # fget <- "https://www.federalreserve.gov/releases/z1/20180607/z1_csv_files.zip"
-fget <- "https://www.federalreserve.gov/releases/z1/20180920/z1_csv_files.zip"
+# fget <- "https://www.federalreserve.gov/releases/z1/20180920/z1_csv_files.zip"
+fget <- "https://www.federalreserve.gov/releases/z1/20190307/z1_csv_files.zip"
 
 zfn <- "z1_csv_files.zip"
 
@@ -117,7 +141,7 @@ max(fof$date)
 # count(fof, freq)
 # count(fof, is.na(value))
 
-devtools::use_data(fof, overwrite=TRUE)
+usethis::use_data(fof, overwrite=TRUE)
 
 
 #****************************************************************************************************
@@ -164,7 +188,7 @@ glimpse(fofu)
 
 memory()
 
-devtools::use_data(fofu, overwrite=TRUE)
+usethis::use_data(fofu, overwrite=TRUE)
 
 #****************************************************************************************************
 #                CAUTION: ONLY unlink when all done, or file will have to be re-downloaded ####
