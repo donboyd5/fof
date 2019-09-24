@@ -1,5 +1,5 @@
 
-# 04/03/2019
+# 09/24/2019
 
 #****************************************************************************************************
 #                Libraries and global functions ####
@@ -55,7 +55,8 @@ library("btools")
 
 # fget <- "https://www.federalreserve.gov/releases/z1/20180607/z1_csv_files.zip"
 # fget <- "https://www.federalreserve.gov/releases/z1/20180920/z1_csv_files.zip"
-fget <- "https://www.federalreserve.gov/releases/z1/20190307/z1_csv_files.zip"
+# fget <- "https://www.federalreserve.gov/releases/z1/20190307/z1_csv_files.zip"
+fget <- "https://www.federalreserve.gov/releases/z1/20190920/z1_csv_files.zip"
 
 zfn <- "z1_csv_files.zip"
 
@@ -135,7 +136,10 @@ fof <- csvdf3 %>% left_join(dd.df2) %>%
 glimpse(fof)
 
 fof %>% filter(src=="l120b", date==max(date)) %>% arrange(lineno)
-
+fof %>%
+  filter(src=="l120b", date==max(date)) %>%
+  arrange(lineno) %>%
+  select(date, variable, value, lineno, description)
 
 max(fof$date)
 # count(fof, freq)
